@@ -1,0 +1,26 @@
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	// Echo
+	uint8_t data = RxBuffer[RxIndex];
+	HAL_UART_Transmit_IT(huart, &data, 1); // Echo back
+	// Check if command has been completed
+	if (RxBuffer[RxIndex] == '\r' && RxIndex == 4) {
+		CmdReceived = 1; // Set flag to process in main loop once buffer is full
+	}
+	else {
+		RxIndex++; //increment index
+        }
+        HAL_UART_Receive_IT(huart, &RxBuffer[RxIndex], 1); //prep next interrupt
+}
+
+
+  uint8_t RxBuffer[5]; // Length of the command "Mnxy\r"
+  uint8_t RxIndex = 0;
+  volatile uint8_t CmdReceived = 0;
+  HAL_UART_Receive_IT(&huart2, &RxBuffer[RxIndex], 1);  // Start receiving one byte
+
+	  if (CmdReceived) {
+//	          processCommand(RxBuffer);
+	          CmdReceived = 0; // Reset flag
+	          memset(RxBuffer, 0, 5);  // Clear buffer
+	          RxIndex = 0;

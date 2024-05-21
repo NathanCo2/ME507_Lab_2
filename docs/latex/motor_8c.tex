@@ -1,0 +1,162 @@
+\doxysection{C\+:/\+Users/\+Nathan/\+One\+Drive -\/ Cal Poly/\+ME 507/\+Lab02/main/\+Core/\+Src/motor.c File Reference}
+\hypertarget{motor_8c}{}\label{motor_8c}\index{C:/Users/Nathan/OneDrive -\/ Cal Poly/ME 507/Lab02/main/Core/Src/motor.c@{C:/Users/Nathan/OneDrive -\/ Cal Poly/ME 507/Lab02/main/Core/Src/motor.c}}
+
+
+Motor Driver.  
+
+
+{\ttfamily \#include "{}motor.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{motor_8c_ad03655fd5d08f0f6ab45f0f75c9b2f94}{set\+\_\+duty}} (motor\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+mot, int32\+\_\+t level)
+\begin{DoxyCompactList}\small\item\em Set the duty cycle of the motor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{motor_8c_a851ca5b405d43066523f77f6677203f7}{enable\+\_\+chA}} (motor\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+mot, int32\+\_\+t level)
+\begin{DoxyCompactList}\small\item\em Enable channel A with a specified duty cycle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{motor_8c_a6a1a39df6f3d916c5fd8696e54a55e29}{enable\+\_\+chB}} (motor\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+mot, int32\+\_\+t level)
+\begin{DoxyCompactList}\small\item\em Enable channel B with a specified duty cycle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{motor_8c_ae869e353a1083fdeffa39e2c944ceec1}{disable\+\_\+chA}} (motor\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+mot)
+\begin{DoxyCompactList}\small\item\em Disable channel A. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{motor_8c_a51651786542b1e80d6d9c3a3fefb1b4a}{disable\+\_\+chB}} (motor\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+mot)
+\begin{DoxyCompactList}\small\item\em Disable channel B. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{motor_8c_a705c8695590ff72b54aeeb1487d73257}{set\+\_\+duty\+\_\+chA}} (motor\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+mot, int32\+\_\+t level)
+\begin{DoxyCompactList}\small\item\em Set the duty cycle for channel A. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{motor_8c_a4793a1042cd61b7504a3eb881ed3235d}{set\+\_\+duty\+\_\+chB}} (motor\+\_\+t \texorpdfstring{$\ast$}{*}p\+\_\+mot, int32\+\_\+t level)
+\begin{DoxyCompactList}\small\item\em Set the duty cycle for channel B. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Motor Driver. 
+
+This code allows one to enable/disable and set the duty cycle of a motor \begin{DoxyDate}{Date}
+Created on\+: Apr 29, 2024 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Nathan Chapman  
+\begin{DoxyInlineImage}
+\includegraphics[height=\baselineskip,keepaspectratio=true]{Krabby.png}
+\end{DoxyInlineImage}
+    
+\end{DoxyAuthor}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{motor_8c_ae869e353a1083fdeffa39e2c944ceec1}\index{motor.c@{motor.c}!disable\_chA@{disable\_chA}}
+\index{disable\_chA@{disable\_chA}!motor.c@{motor.c}}
+\doxysubsubsection{\texorpdfstring{disable\_chA()}{disable\_chA()}}
+{\footnotesize\ttfamily \label{motor_8c_ae869e353a1083fdeffa39e2c944ceec1} 
+void disable\+\_\+chA (\begin{DoxyParamCaption}\item[{motor\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+\_\+mot}{}\end{DoxyParamCaption})}
+
+
+
+Disable channel A. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+\_\+mot} & Pointer to the motor structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{motor_8c_a51651786542b1e80d6d9c3a3fefb1b4a}\index{motor.c@{motor.c}!disable\_chB@{disable\_chB}}
+\index{disable\_chB@{disable\_chB}!motor.c@{motor.c}}
+\doxysubsubsection{\texorpdfstring{disable\_chB()}{disable\_chB()}}
+{\footnotesize\ttfamily \label{motor_8c_a51651786542b1e80d6d9c3a3fefb1b4a} 
+void disable\+\_\+chB (\begin{DoxyParamCaption}\item[{motor\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+\_\+mot}{}\end{DoxyParamCaption})}
+
+
+
+Disable channel B. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+\_\+mot} & Pointer to the motor structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{motor_8c_a851ca5b405d43066523f77f6677203f7}\index{motor.c@{motor.c}!enable\_chA@{enable\_chA}}
+\index{enable\_chA@{enable\_chA}!motor.c@{motor.c}}
+\doxysubsubsection{\texorpdfstring{enable\_chA()}{enable\_chA()}}
+{\footnotesize\ttfamily \label{motor_8c_a851ca5b405d43066523f77f6677203f7} 
+void enable\+\_\+chA (\begin{DoxyParamCaption}\item[{motor\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+\_\+mot}{, }\item[{int32\+\_\+t}]{level}{}\end{DoxyParamCaption})}
+
+
+
+Enable channel A with a specified duty cycle. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+\_\+mot} & Pointer to the motor structure. \\
+\hline
+\mbox{\texttt{ in}}  & {\em level} & Desired duty cycle level (0 to 100). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{motor_8c_a6a1a39df6f3d916c5fd8696e54a55e29}\index{motor.c@{motor.c}!enable\_chB@{enable\_chB}}
+\index{enable\_chB@{enable\_chB}!motor.c@{motor.c}}
+\doxysubsubsection{\texorpdfstring{enable\_chB()}{enable\_chB()}}
+{\footnotesize\ttfamily \label{motor_8c_a6a1a39df6f3d916c5fd8696e54a55e29} 
+void enable\+\_\+chB (\begin{DoxyParamCaption}\item[{motor\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+\_\+mot}{, }\item[{int32\+\_\+t}]{level}{}\end{DoxyParamCaption})}
+
+
+
+Enable channel B with a specified duty cycle. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+\_\+mot} & Pointer to the motor structure. \\
+\hline
+\mbox{\texttt{ in}}  & {\em level} & Desired duty cycle level (0 to 100). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{motor_8c_ad03655fd5d08f0f6ab45f0f75c9b2f94}\index{motor.c@{motor.c}!set\_duty@{set\_duty}}
+\index{set\_duty@{set\_duty}!motor.c@{motor.c}}
+\doxysubsubsection{\texorpdfstring{set\_duty()}{set\_duty()}}
+{\footnotesize\ttfamily \label{motor_8c_ad03655fd5d08f0f6ab45f0f75c9b2f94} 
+void set\+\_\+duty (\begin{DoxyParamCaption}\item[{motor\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+\_\+mot}{, }\item[{int32\+\_\+t}]{level}{}\end{DoxyParamCaption})}
+
+
+
+Set the duty cycle of the motor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+\_\+mot} & Pointer to the motor object structure. \\
+\hline
+\mbox{\texttt{ in}}  & {\em level} & Desired duty cycle percentage (-\/100 to 100).\\
+\hline
+\end{DoxyParams}
+This function constrains the level to the valid range and sets the PWM duty cycle by updating the compare register pointer directly. Constrain level to valid range
+
+Initialize pulse width variables
+
+Set the PWM duty cycle by updating the compare register\Hypertarget{motor_8c_a705c8695590ff72b54aeeb1487d73257}\index{motor.c@{motor.c}!set\_duty\_chA@{set\_duty\_chA}}
+\index{set\_duty\_chA@{set\_duty\_chA}!motor.c@{motor.c}}
+\doxysubsubsection{\texorpdfstring{set\_duty\_chA()}{set\_duty\_chA()}}
+{\footnotesize\ttfamily \label{motor_8c_a705c8695590ff72b54aeeb1487d73257} 
+void set\+\_\+duty\+\_\+chA (\begin{DoxyParamCaption}\item[{motor\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+\_\+mot}{, }\item[{int32\+\_\+t}]{level}{}\end{DoxyParamCaption})}
+
+
+
+Set the duty cycle for channel A. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+\_\+mot} & Pointer to the motor structure. \\
+\hline
+\mbox{\texttt{ in}}  & {\em level} & Desired duty cycle level (0 to 100). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{motor_8c_a4793a1042cd61b7504a3eb881ed3235d}\index{motor.c@{motor.c}!set\_duty\_chB@{set\_duty\_chB}}
+\index{set\_duty\_chB@{set\_duty\_chB}!motor.c@{motor.c}}
+\doxysubsubsection{\texorpdfstring{set\_duty\_chB()}{set\_duty\_chB()}}
+{\footnotesize\ttfamily \label{motor_8c_a4793a1042cd61b7504a3eb881ed3235d} 
+void set\+\_\+duty\+\_\+chB (\begin{DoxyParamCaption}\item[{motor\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+\_\+mot}{, }\item[{int32\+\_\+t}]{level}{}\end{DoxyParamCaption})}
+
+
+
+Set the duty cycle for channel B. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em p\+\_\+mot} & Pointer to the motor structure. \\
+\hline
+\mbox{\texttt{ in}}  & {\em level} & Desired duty cycle level (0 to 100). \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,7 @@
+../Core/Src/motor.c:10:6:set_duty	24	static
+../Core/Src/motor.c:28:6:enable_chA	24	static
+../Core/Src/motor.c:32:6:enable_chB	24	static
+../Core/Src/motor.c:36:6:disable_chA	16	static
+../Core/Src/motor.c:39:6:disable_chB	16	static
+../Core/Src/motor.c:42:6:set_duty_chA	24	static
+../Core/Src/motor.c:46:6:set_duty_chB	24	static

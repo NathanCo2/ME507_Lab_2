@@ -1,0 +1,192 @@
+\doxysection{C\+:/\+Users/\+Nathan/\+One\+Drive -\/ Cal Poly/\+ME 507/\+Lab02/main/\+Core/\+Src/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{C:/Users/Nathan/OneDrive -\/ Cal Poly/ME 507/Lab02/main/Core/Src/main.c@{C:/Users/Nathan/OneDrive -\/ Cal Poly/ME 507/Lab02/main/Core/Src/main.c}}
+
+
+Main program body for lab02.  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include "{}motor.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{System\+Clock\+\_\+\+Config}} (void)
+\begin{DoxyCompactList}\small\item\em System Clock Configuration. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em The application entry point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_ae494a9643f29b87d6d81e5264e60e57b}{HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback}} (UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}huart)
+\item 
+void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a2c80fd5510e2990a59a5c90d745c716c}{htim2}}
+\item 
+UART\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_aa9479c261d65eecedd3d9582f7f0f89c}{huart2}}
+\item 
+char \mbox{\hyperlink{main_8c_ab13edecefbec688983df99a8ce521581}{Rx\+Buffer}} \mbox{[}5\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a87937073f83feeb6a6cd5f1b4fa9e16f}{Rx\+Index}} = 0
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{main_8c_afef5c3979f44b1af2512e5e5c894ed41}{Cmd\+Received}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a325819a8e492ac69542e8b31705af6e9}{data}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{main_8c_adfa5cc9d1f560204ae217c1d8af2b558}{xy}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{main_8c_ab6a8993805fd7b50a32669337ca3a37a}{duty}} = 50
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{main_8c_a7c5e0ca364e68fd37ea2427006ef14bb}{confirm1}} = "{}\textbackslash{}r\textbackslash{}n\+Motor 1 Command Received Successfully\textbackslash{}r\textbackslash{}n"{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{main_8c_afdbddfba4509b4c4a39e2d8ef3a08db3}{confirm2}} = "{}\textbackslash{}r\textbackslash{}n\+Motor 2 Command Received Successfully\textbackslash{}r\textbackslash{}n"{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{main_8c_a2765b6a4ece0cfd971d4f7ddf69ed3a5}{reset}} = "{}Please Enter Motor Command in Format Mnxy\mbox{[}ENTER\mbox{]}\textbackslash{}r\textbackslash{}n"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main program body for lab02. 
+
+This main file sets up a motor driver {\itshape pseudo} object to drive {\bfseries{two}} motors at once
+
+Copyright (c) 2024 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a1730ffe1e560465665eb47d9264826f9}\index{main.c@{main.c}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily \label{main_8c_a1730ffe1e560465665eb47d9264826f9} 
+void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{main_8c_ae494a9643f29b87d6d81e5264e60e57b}\index{main.c@{main.c}!HAL\_UART\_RxCpltCallback@{HAL\_UART\_RxCpltCallback}}
+\index{HAL\_UART\_RxCpltCallback@{HAL\_UART\_RxCpltCallback}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_UART\_RxCpltCallback()}{HAL\_UART\_RxCpltCallback()}}
+{\footnotesize\ttfamily \label{main_8c_ae494a9643f29b87d6d81e5264e60e57b} 
+void HAL\+\_\+\+UART\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{UART\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{huart}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+The application entry point. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+Start Timer 4 Ch1-\/4
+
+Create pointers to the condition code registers of the channels 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uint32\_t\ *pCCR1\ =\ \&(\mbox{\hyperlink{main_8c_a2c80fd5510e2990a59a5c90d745c716c}{htim2}}.Instance-\/>CCR1);}
+
+\end{DoxyCode}
+
+
+\texorpdfstring{$<$}{<} Grab the value of the period of Timer 2 for PWM calculations
+
+\texorpdfstring{$<$}{<} Pass pointers to CCR registers to control motor and period value\Hypertarget{main_8c_a70af21c671abfcc773614a9a4f63d920}\index{main.c@{main.c}!SystemClock\_Config@{SystemClock\_Config}}
+\index{SystemClock\_Config@{SystemClock\_Config}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SystemClock\_Config()}{SystemClock\_Config()}}
+{\footnotesize\ttfamily \label{main_8c_a70af21c671abfcc773614a9a4f63d920} 
+void System\+Clock\+\_\+\+Config (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+System Clock Configuration. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Configure the main internal regulator output voltage
+
+Initializes the RCC Oscillators according to the specified parameters in the RCC\+\_\+\+Osc\+Init\+Type\+Def structure.
+
+Initializes the CPU, AHB and APB buses clocks
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8c_afef5c3979f44b1af2512e5e5c894ed41}\index{main.c@{main.c}!CmdReceived@{CmdReceived}}
+\index{CmdReceived@{CmdReceived}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{CmdReceived}{CmdReceived}}
+{\footnotesize\ttfamily \label{main_8c_afef5c3979f44b1af2512e5e5c894ed41} 
+volatile uint8\+\_\+t Cmd\+Received = 0}
+
+\Hypertarget{main_8c_a7c5e0ca364e68fd37ea2427006ef14bb}\index{main.c@{main.c}!confirm1@{confirm1}}
+\index{confirm1@{confirm1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{confirm1}{confirm1}}
+{\footnotesize\ttfamily \label{main_8c_a7c5e0ca364e68fd37ea2427006ef14bb} 
+const char\texorpdfstring{$\ast$}{*} confirm1 = "{}\textbackslash{}r\textbackslash{}n\+Motor 1 Command Received Successfully\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{main_8c_afdbddfba4509b4c4a39e2d8ef3a08db3}\index{main.c@{main.c}!confirm2@{confirm2}}
+\index{confirm2@{confirm2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{confirm2}{confirm2}}
+{\footnotesize\ttfamily \label{main_8c_afdbddfba4509b4c4a39e2d8ef3a08db3} 
+const char\texorpdfstring{$\ast$}{*} confirm2 = "{}\textbackslash{}r\textbackslash{}n\+Motor 2 Command Received Successfully\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{main_8c_a325819a8e492ac69542e8b31705af6e9}\index{main.c@{main.c}!data@{data}}
+\index{data@{data}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily \label{main_8c_a325819a8e492ac69542e8b31705af6e9} 
+uint8\+\_\+t data}
+
+\Hypertarget{main_8c_ab6a8993805fd7b50a32669337ca3a37a}\index{main.c@{main.c}!duty@{duty}}
+\index{duty@{duty}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{duty}{duty}}
+{\footnotesize\ttfamily \label{main_8c_ab6a8993805fd7b50a32669337ca3a37a} 
+int32\+\_\+t duty = 50}
+
+\Hypertarget{main_8c_a2c80fd5510e2990a59a5c90d745c716c}\index{main.c@{main.c}!htim2@{htim2}}
+\index{htim2@{htim2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{htim2}{htim2}}
+{\footnotesize\ttfamily \label{main_8c_a2c80fd5510e2990a59a5c90d745c716c} 
+TIM\+\_\+\+Handle\+Type\+Def htim2}
+
+\Hypertarget{main_8c_aa9479c261d65eecedd3d9582f7f0f89c}\index{main.c@{main.c}!huart2@{huart2}}
+\index{huart2@{huart2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{huart2}{huart2}}
+{\footnotesize\ttfamily \label{main_8c_aa9479c261d65eecedd3d9582f7f0f89c} 
+UART\+\_\+\+Handle\+Type\+Def huart2}
+
+\Hypertarget{main_8c_a2765b6a4ece0cfd971d4f7ddf69ed3a5}\index{main.c@{main.c}!reset@{reset}}
+\index{reset@{reset}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{reset}{reset}}
+{\footnotesize\ttfamily \label{main_8c_a2765b6a4ece0cfd971d4f7ddf69ed3a5} 
+const char\texorpdfstring{$\ast$}{*} reset = "{}Please Enter Motor Command in Format Mnxy\mbox{[}ENTER\mbox{]}\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{main_8c_ab13edecefbec688983df99a8ce521581}\index{main.c@{main.c}!RxBuffer@{RxBuffer}}
+\index{RxBuffer@{RxBuffer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{RxBuffer}{RxBuffer}}
+{\footnotesize\ttfamily \label{main_8c_ab13edecefbec688983df99a8ce521581} 
+char Rx\+Buffer\mbox{[}5\mbox{]}}
+
+\Hypertarget{main_8c_a87937073f83feeb6a6cd5f1b4fa9e16f}\index{main.c@{main.c}!RxIndex@{RxIndex}}
+\index{RxIndex@{RxIndex}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{RxIndex}{RxIndex}}
+{\footnotesize\ttfamily \label{main_8c_a87937073f83feeb6a6cd5f1b4fa9e16f} 
+uint8\+\_\+t Rx\+Index = 0}
+
+\Hypertarget{main_8c_adfa5cc9d1f560204ae217c1d8af2b558}\index{main.c@{main.c}!xy@{xy}}
+\index{xy@{xy}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{xy}{xy}}
+{\footnotesize\ttfamily \label{main_8c_adfa5cc9d1f560204ae217c1d8af2b558} 
+uint16\+\_\+t xy}
+
